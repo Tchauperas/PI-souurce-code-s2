@@ -1,11 +1,11 @@
 const knex = require("../configs/dataBase");
 
 class User {
-  async selectUserById(idUser) {
+  async selectUserById(iduser) {
     try {
       let user = await knex
-        .select(["idUser", "login", "password"])
-        .where({ idUser: idUser })
+        .select(["iduser", "login", "password"])
+        .where({ iduser: iduser })
         .table("user");
       return user.length > 0
         ? { validated: true, values: user }
@@ -27,19 +27,19 @@ class User {
     }
   }
 
-  async delete(idUser) {
+  async delete(iduser) {
     try {
-      await knex("user").where({ idUser: idUser }).del();
+      await knex("user").where({ iduser: iduser }).del();
       return { validated: true };
     } catch (error) {
       return { validated: false, error: error };
     }
   }
 
-  async update(idUser) {
+  async update(iduser) {
     try {
       await knex("user")
-        .where({ idUser: idUser })
+        .where({ iduser: iduser })
         .update({ login: this.login, password: this.password });
       return { validated: true };
     } catch (error) {
@@ -49,9 +49,7 @@ class User {
 
   async selectAll() {
     try {
-      let users = await knex
-        .select(["idUser", "login", "password"])
-        .table("user");
+      let users = await knex.select(["iduser", "login", "password"]).table("user");
       return { validated: true, values: users };
     } catch (error) {
       return { validated: false, error: error };
