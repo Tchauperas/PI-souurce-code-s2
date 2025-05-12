@@ -1,13 +1,17 @@
-require("dotenv").config();
-const knex = require("knex")({
-  client: "mysql2",
+const knex = require("knex");
+const dotenv = require("dotenv");
+dotenv.config();
+
+const db = knex({
+  client: "pg",
   connection: {
-    host: process.env.DB_HOST,
-    port: 3306,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
+    connectionString: process.env.DATABASE_URL,
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
+    user: process.env.PGUSER,
+    database: process.env.PGDATABASE,
+    password: process.env.PGPASSWORD,
   },
 });
 
-module.exports = knex;
+module.exports = db;
