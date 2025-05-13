@@ -1,6 +1,7 @@
 <!-- login_screen.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +9,58 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="images/logo_hitsys.ico" type="image/x-icon">
 </head>
+
 <body>
   <div class="login-container">
     <div class="logo-container">
-      <img src="images/logo_hitsys.ico" alt="Logo do Hitsys" class="logo"> 
+      <img src="images/logo_hitsys.ico" alt="Logo do Hitsys" class="logo">
       <div class="system-name">Hitsys</div>
     </div>
-    <form action="home_screen.html">
+    <form id="login-form">
       <div class="form-group">
         <label for="login">Login:</label>
-        <input type="text" id="login" name="login" placeholder="Digite seu login">
+        <input type="text" id="login" name="login" placeholder="Digite seu login" required>
       </div>
       <div class="form-group">
         <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
       </div>
       <button type="submit">Entrar</button>
     </form>
+    <div id="mensagem-erro" style="color: red; margin-top: 10px;"></div>
   </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async function (event) {
+      event.preventDefault(); // Evita o envio tradicional do formulário
+
+      const login = document.getElementById('login').value;
+      const password = document.getElementById('senha').value;
+
+      try {
+        const resposta = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+            // 'Authorization': 'Bearer <token>' // Se for usar tokens depois
+          },
+          body: JSON.stringify({ login, password })
+        });
+
+        if (resposta.ok) {
+          // Redireciona se a autenticação for bem-sucedida
+          window.location.href = 'home_screen.html';
+        } else {
+          const erro = await resposta.json();
+          document.getElementById('mensagem-erro').textContent = erro.mensagem || 'Login ou senha inválidos.';
+        }
+      } catch (error) {
+        console.error('Erro na requisição:', error);
+        document.getElementById('mensagem-erro').textContent = 'Erro ao conectar com o servidor.';
+      }
+    });
+  </script>
+
 </body>
+
 </html>
