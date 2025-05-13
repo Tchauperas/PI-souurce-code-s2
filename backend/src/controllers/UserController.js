@@ -47,10 +47,7 @@ class UserController {
   async update(req, res) {
     if (isNaN(req.params.id)) {
       res.status(400).json({ success: false, message: "ID invalido" });
-    } else if (
-      req.body.login == undefined ||
-      req.body.password == undefined
-    ) {
+    } else if (req.body.login == undefined || req.body.password == undefined) {
       res.status(400).json({ success: false, message: "Dados invalidos" });
     } else {
       usuario.login = req.body.login;

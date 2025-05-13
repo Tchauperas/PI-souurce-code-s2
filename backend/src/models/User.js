@@ -49,8 +49,24 @@ class User {
 
   async selectAll() {
     try {
-      let users = await knex.select(["iduser", "login", "password"]).table("user");
+      let users = await knex
+        .select(["iduser", "login", "password"])
+        .table("user");
       return { validated: true, values: users };
+    } catch (error) {
+      return { validated: false, error: error };
+    }
+  }
+
+  async findByLogin(login) {
+    try {
+      let user = await knex
+        .select(["iduser", "login", "password", "role"])
+        .where({ login: login })
+        .table("user");
+      return user.length > 0
+        ? { validated: true, values: user }
+        : { validated: true, values: undefined };
     } catch (error) {
       return { validated: false, error: error };
     }

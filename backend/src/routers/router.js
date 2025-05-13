@@ -5,14 +5,19 @@ const userController = require("../controllers/UserController");
 const empresaController = require("../controllers/EmpresaController");
 const pessoaController = require("../controllers/PessoaController");
 const lancamentoController = require("../controllers/LancamentoController");
+const authUser = require("../middlewares/auth_user");
+const authAdmin = require("../middlewares/auth_admin");
+const loginController = require("../controllers/LoginController");
 
-router.post("/user", userController.insert);
-router.get("/users", userController.selectAll);
-router.get("/user/:id", userController.selectUserById);
-router.delete("/user/:id", userController.delete);
-router.put("/user/:id", userController.update);
+router.post("/login", loginController.login);
 
-router.post("/empresa", empresaController.insert);
+router.post("/user", authAdmin, userController.insert);
+router.get("/users", authAdmin, userController.selectAll);
+router.get("/user/:id", authAdmin, userController.selectUserById);
+router.delete("/user/:id", authAdmin, userController.delete);
+router.put("/user/:id", authAdmin, userController.update);
+
+router.post("/empresa", authUser, empresaController.insert);
 router.get("/empresas", empresaController.selectAll);
 router.get("/empresa/:id", empresaController.selectById);
 router.delete("/empresa/:id", empresaController.delete);
