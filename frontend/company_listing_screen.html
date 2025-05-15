@@ -1,38 +1,41 @@
+<!-- company_listing_screen.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Listagem de Empresas</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="images/logo_hitsys.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="images/logo_hitsys.ico" type="image/x-icon" />
 </head>
 <body>
   <div class="navbar">
-    <button onclick="window.location.href='home_screen.html'">Sair</button>
+    <button class="new-btn" onclick="window.location.href='registration_company.html'">Cadastrar</button>
+    <button class="exit-btn" onclick="window.location.href='home_screen.html'">
+      <img src="images/exit_icon.png" alt="Sair" />
+    </button>
   </div>
 
   <div class="listing-container">
-    <div class="logo-container">
-      <img src="images/company_icon.png" alt="Ícone Empresas" class="logo">
-      <div class="listing-title">Listagem de Empresas</div>
+    <div class="logo-container modified-logo">
+      <img src="images/company_icon.png" alt="Ícone Empresas" class="logo enlarged-logo" />
+      <div class="listing-title enlarged-title">Listagem de Empresas</div>
     </div>
 
     <div class="table-container">
       <table>
         <thead>
           <tr>
-            <th>Código <input type="text" class="filter" data-column="0"></th>
-            <th>Nome <input type="text" class="filter" data-column="1"></th>
-            <th>Nome Fantasia <input type="text" class="filter" data-column="2"></th>
-            <th>CNPJ / CPF <input type="text" class="filter" data-column="3"></th>
-            <th>Tipo Pessoa <input type="text" class="filter" data-column="4"></th>
-            <th>Tipo Cadastro <input type="text" class="filter" data-column="5"></th>
+            <th>Código <input type="text" class="filter" data-column="0" /></th>
+            <th>Nome <input type="text" class="filter" data-column="1" /></th>
+            <th>Nome Fantasia <input type="text" class="filter" data-column="2" /></th>
+            <th>CNPJ / CPF <input type="text" class="filter" data-column="3" /></th>
+            <th>Tipo Pessoa <input type="text" class="filter" data-column="4" /></th>
+            <th>Tipo Cadastro <input type="text" class="filter" data-column="5" /></th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Dados de empresas fictícias - Será substituído pela integração com API -->
           <tr>
             <td>001</td>
             <td>Empresa Alpha</td>
@@ -57,7 +60,6 @@
               <button class="delete-btn">Excluir</button>
             </td>
           </tr>
-          <!-- Mais empresas podem ser adicionadas aqui -->
         </tbody>
       </table>
     </div>

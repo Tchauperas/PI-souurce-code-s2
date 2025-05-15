@@ -132,3 +132,56 @@ body {
   transform: translate(-50%, -50%); /* Centraliza no meio da página */
 }
 
+/* ... Estilos existentes ... */
+
+/* Ícone e Título - alinhados à esquerda e maiores */
+.modified-logo {
+  justify-content: flex-start; /* Alinha tudo à esquerda */
+  margin-top: -100px; /* Sobe ou desce o bloco */
+  margin-left: 40px; /* Move da esquerda pra direita */
+}
+
+/* Altera o Tamanho do Ícone */
+.enlarged-logo {
+  height: 100px; /* Aumenta ou reduz o tamanho do ícone */
+}
+
+/* Altera o Tamanho do Titulo */
+.enlarged-title {
+  font-size: 50px; /* Tamanho do texto */
+  font-weight: bold; /* Formatação */
+  margin-left: 15px; /* Espaço entre o ícone e o texto */
+}
+
+/* Novo botão "Cadastrar" */
+.new-btn {
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.new-btn:hover {
+  background-color: darkorange;
+}
+
+/* Botão de sair com ícone */
+.exit-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.exit-btn img {
+  height: 30px;
+  width: 30px;
+}
+
+
+
