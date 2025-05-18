@@ -15,6 +15,7 @@ class PessoaController {
       uf,
       telefone,
       id_usuario,
+      razao_social,
     } = req.body;
 
     let result = await pessoa.insert(
@@ -29,7 +30,8 @@ class PessoaController {
       municipio,
       uf,
       telefone,
-      id_usuario
+      id_usuario,
+      razao_social
     );
 
     result.validated
@@ -80,6 +82,7 @@ class PessoaController {
       uf,
       telefone,
       id_usuario,
+      razao_social,
     } = req.body;
 
     let result = await pessoa.update(
@@ -95,7 +98,8 @@ class PessoaController {
       municipio,
       uf,
       telefone,
-      id_usuario
+      id_usuario,
+      razao_social
     );
 
     result.validated

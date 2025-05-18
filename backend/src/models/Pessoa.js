@@ -13,7 +13,8 @@ class Pessoa {
     municipio,
     uf,
     telefone,
-    id_usuario
+    id_usuario,
+    razao_social
   ) {
     try {
       await knex
@@ -30,6 +31,7 @@ class Pessoa {
           uf: uf,
           telefone: telefone,
           id_usuario: id_usuario,
+          razao_social: razao_social,
         })
         .table("pessoas");
 
@@ -56,6 +58,7 @@ class Pessoa {
           "uf",
           "telefone",
           "id_usuario",
+          "razao_social",
         ])
         .table("pessoas");
       return { validated: true, values: pessoas };
@@ -81,6 +84,7 @@ class Pessoa {
           "uf",
           "telefone",
           "id_usuario",
+          "razao_social",
         ])
         .where({ idpessoas: idpessoas })
         .table("pessoas");
@@ -112,25 +116,25 @@ class Pessoa {
     municipio,
     uf,
     telefone,
-    id_usuario
+    id_usuario,
+    razao_social
   ) {
     try {
-      await knex("pessoas")
-        .where({ idpessoas: idpessoas })
-        .update({
-          idTipoCadastro: idTipoCadastro,
-          idTipoPessoa: idTipoPessoa,
-          cnpj_cpf: cnpj_cpf,
-          logradouro: logradouro,
-          bairro: bairro,
-          n: n,
-          complemento: complemento,
-          cep: cep,
-          municipio: municipio,
-          uf: uf,
-          telefone: telefone,
-          id_usuario: id_usuario,
-        });
+      await knex("pessoas").where({ idpessoas: idpessoas }).update({
+        idTipoCadastro: idTipoCadastro,
+        idTipoPessoa: idTipoPessoa,
+        cnpj_cpf: cnpj_cpf,
+        logradouro: logradouro,
+        bairro: bairro,
+        n: n,
+        complemento: complemento,
+        cep: cep,
+        municipio: municipio,
+        uf: uf,
+        telefone: telefone,
+        id_usuario: id_usuario,
+        razao_social: razao_social,
+      });
       return { validated: true };
     } catch (error) {
       return { validated: false, error: error };
