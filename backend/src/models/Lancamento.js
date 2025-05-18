@@ -4,7 +4,7 @@ class Lancamento {
   async insert(
     id_empresa,
     id_pessoas,
-    id_TipoLancamentos,
+    id_tipolancamentos,
     numdoc,
     data_movimento,
     data_vecto,
@@ -16,7 +16,7 @@ class Lancamento {
       const result = await knex("lancamentos").insert({
         id_empresa,
         id_pessoas,
-        id_TipoLancamentos,
+        id_tipolancamentos,
         numdoc,
         data_movimento,
         data_vecto,
@@ -43,7 +43,7 @@ class Lancamento {
 
   async selectById(idlancamentos) {
     try {
-      const result = await knex("lancamentos").where({ idlancamentos : idlancamentos }).first();
+      const result = await knex("lancamentos").where({ idlancamentos: idlancamentos }).first();
       return result;
     } catch (error) {
       console.error("Error selecting lancamento by id:", error);
@@ -61,11 +61,22 @@ class Lancamento {
     }
   }
 
-  async update(idlancamentos, id_empresa, id_pessoas, id_TipoLancamentos, numdoc, data_movimento, data_vecto, valor, data_pagamento, id_usuario) {
+  async update(
+    idlancamentos,
+    id_empresa,
+    id_pessoas,
+    id_tipolancamentos,
+    numdoc,
+    data_movimento,
+    data_vecto,
+    valor,
+    data_pagamento,
+    id_usuario
+  ) {
     const data = {
       id_empresa,
       id_pessoas,
-      id_TipoLancamentos,
+      id_tipolancamentos,
       numdoc,
       data_movimento,
       data_vecto,

@@ -2,8 +2,8 @@ const knex = require("../configs/dataBase.js");
 
 class Pessoa {
   async insert(
-    idTipoCadastro,
-    idTipoPessoa,
+    idtipocadastro,
+    idtipopessoa,
     cnpj_cpf,
     logradouro,
     bairro,
@@ -19,8 +19,8 @@ class Pessoa {
     try {
       await knex
         .insert({
-          idTipoCadastro: idTipoCadastro,
-          idTipoPessoa: idTipoPessoa,
+          idtipocadastro: idtipocadastro,
+          idtipopessoa: idtipopessoa,
           cnpj_cpf: cnpj_cpf,
           logradouro: logradouro,
           bairro: bairro,
@@ -46,8 +46,8 @@ class Pessoa {
       let pessoas = await knex
         .select([
           "idpessoas",
-          "idTipoCadastro",
-          "idTipoPessoa",
+          "idtipocadastro",
+          "idtipopessoa",
           "cnpj_cpf",
           "logradouro",
           "bairro",
@@ -72,8 +72,8 @@ class Pessoa {
       let pessoas = await knex
         .select([
           "idpessoas",
-          "idTipoCadastro",
-          "idTipoPessoa",
+          "idtipocadastro",
+          "idtipopessoa",
           "cnpj_cpf",
           "logradouro",
           "bairro",
@@ -105,8 +105,8 @@ class Pessoa {
 
   async update(
     idpessoas,
-    idTipoCadastro,
-    idTipoPessoa,
+    idtipocadastro,
+    idtipopessoa,
     cnpj_cpf,
     logradouro,
     bairro,
@@ -121,8 +121,8 @@ class Pessoa {
   ) {
     try {
       await knex("pessoas").where({ idpessoas: idpessoas }).update({
-        idTipoCadastro: idTipoCadastro,
-        idTipoPessoa: idTipoPessoa,
+        idtipocadastro: idtipocadastro,
+        idtipopessoa: idtipopessoa,
         cnpj_cpf: cnpj_cpf,
         logradouro: logradouro,
         bairro: bairro,

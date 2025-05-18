@@ -23,11 +23,11 @@ router.get("/empresa/:id",authUser, empresaController.selectById);
 router.delete("/empresa/:id",authUser, empresaController.delete);
 router.put("/empresa/:id",authUser, empresaController.update);
 
-router.post("/pessoa",authUser, pessoaController.insert);
-router.get("/pessoas",authUser, pessoaController.selectAll);
-router.get("/pessoa/:id",authUser, pessoaController.selectById);
-router.delete("/pessoa/:id",authUser, pessoaController.delete);
-router.put("/pessoa/:id",authUser, pessoaController.update);
+router.post("/pessoa", pessoaController.insert);
+router.get("/pessoas", pessoaController.selectAll);
+router.get("/pessoa/:id", pessoaController.selectById);
+router.delete("/pessoa/:id", pessoaController.delete);
+router.put("/pessoa/:id", pessoaController.update);
 
 router.post("/lancamento",authUser, lancamentoController.insert);
 router.get("/lancamentos",authUser, lancamentoController.selectAll);
