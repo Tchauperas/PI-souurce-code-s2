@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Empresa</title>
+    <title>Cadastro</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,13 +37,25 @@
 
 <body>
 
-    <h2>Cadastro de Empresa</h2>
-    <form action="/cadastrar_empresa" method="POST">
-        <label for="razao_social">Razão Social</label>
-        <input type="text" id="razao_social" name="razao_social" required>
+    <h2>Cadastro</h2>
+    <form action="/cadastrar" method="POST">
+        <label for="idtipocadastro">Tipo de Cadastro</label>
+        <select name="idtipocadastro" id="idtipocadastro">
+            <option value="">Selecione</option>
+            <option value="1">Fornecedor</option>
+            <option value="2">Cliente</option>
+            <option value="3">Ambos</option>
+        </select>
 
-        <label for="cnpj">CNPJ</label>
-        <input type="text" id="cnpj" name="cnpj" required>
+        <label for="idtipopessoa">Tipo de Pessoa</label>
+        <select name="idtipopessoa" id="idtipopessoa">
+            <option value="">Selecione</option>
+            <option value="1">Física</option>
+            <option value="2">Jurídica</option>
+        </select>
+
+        <label for="cnpj_cpf">CNPJ ou CPF</label>
+        <input type="text" id="cnpj_cpf" name="cnpj_cpf" required>
 
         <label for="logradouro">Logradouro</label>
         <input type="text" id="logradouro" name="logradouro">
@@ -64,7 +76,7 @@
         <input type="text" id="municipio" name="municipio">
 
         <label for="uf">UF</label>
-        <select id="uf" name="uf">
+        <select id="uf" name="uf" required>
             <option value="">Selecione</option>
             <option value="AC">AC</option>
             <option value="AL">AL</option>
@@ -97,6 +109,9 @@
 
         <label for="telefone">Telefone</label>
         <input type="text" id="telefone" name="telefone">
+
+        <label for="razao_social">Razão Social</label>
+        <input type="text" id="razao_social" name="razao_social">
 
         <button type="submit">Cadastrar</button>
     </form>
