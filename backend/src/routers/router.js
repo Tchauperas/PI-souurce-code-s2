@@ -18,7 +18,7 @@ router.delete("/user/:id", authAdmin, userController.delete);
 router.put("/user/:id", authAdmin, userController.update);
 
 router.post("/empresa", authUser, empresaController.insert);
-router.get("/empresas",authUser, empresaController.selectAll);
+router.get("/empresas", empresaController.selectAll);
 router.get("/empresa/:id",authUser, empresaController.selectById);
 router.delete("/empresa/:id",authUser, empresaController.delete);
 router.put("/empresa/:id",authUser, empresaController.update);
@@ -30,7 +30,7 @@ router.delete("/pessoa/:id", pessoaController.delete);
 router.put("/pessoa/:id", pessoaController.update);
 
 router.post("/lancamento",authUser, lancamentoController.insert);
-router.get("/lancamentos",authUser, lancamentoController.selectAll);
+router.get("/lancamentos", lancamentoController.selectAll);
 router.get("/lancamento/:id",authUser, lancamentoController.selectById);
 router.delete("/lancamento/:id",authUser, lancamentoController.delete);
 router.put("/lancamento/:id",authUser, lancamentoController.update);
