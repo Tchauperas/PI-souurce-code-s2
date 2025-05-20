@@ -25,8 +25,8 @@ class LoginController {
           process.env.SECRET,
           { expiresIn: 5000 }
         );
-        console.log(user.values[0].role);
         res.status(200).json({ success: true, token: token });
+        console.log(token);
       }
     } else {
       user.values == undefined
