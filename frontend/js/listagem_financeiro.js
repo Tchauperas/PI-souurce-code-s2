@@ -1,6 +1,12 @@
 async function carregarLancamentos() {
   try {
-    const response = await fetch("http://localhost:3000/lancamentos");
+    const response = await fetch("http://localhost:3000/lancamentos", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+    });
     if (!response.ok) throw new Error("Erro ao carregar lançamentos");
 
     const dados = await response.json();
@@ -39,9 +45,7 @@ async function carregarLancamentos() {
             <h3>Lançamento ${item.numdoc || ""}</h3>
             <p><strong>Empresa:</strong> ${item.id_empresa}</p>
             <p><strong>Pessoa:</strong> ${item.id_pessoas}</p>
-            <p><strong>Tipo de Lançamento:</strong> ${
-              tipoLancamento
-            }</p>
+            <p><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</p>
             <p><strong>Data Movimento:</strong> ${item.data_movimento}</p>
             <p><strong>Data Vencimento:</strong> ${item.data_vecto}</p>
             <p><strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(
@@ -60,5 +64,4 @@ async function carregarLancamentos() {
   }
 }
 
-window.onload = carregarLancamentos
-
+window.onload = carregarLancamentos;

@@ -1,6 +1,12 @@
 async function carregarEmpresas() {
   try {
-    const response = await fetch("http://localhost:3000/empresas");
+    const response = await fetch("http://localhost:3000/empresas", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+    });
     if (!response.ok) {
       throw new Error("Erro ao carregar empresas");
     }

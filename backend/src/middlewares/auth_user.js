@@ -5,8 +5,8 @@ module.exports = function (req, res, next) {
   const auth = req.headers["authorization"];
   if (auth != undefined) {
     try {
-      const barier = auth.split(" ");
-      const token = barier[1];
+      const bearer = auth.split(" ");
+      const token = bearer[1];
       jwt.verify(token, process.env.SECRET);
       return next();
     } catch (error) {

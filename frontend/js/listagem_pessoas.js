@@ -1,6 +1,12 @@
 async function carregarPessoas() {
   try {
-    const response = await fetch("http://localhost:3000/pessoas");
+    const response = await fetch("http://localhost:3000/pessoas", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+    });
     if (!response.ok) throw new Error("Erro ao carregar pessoas");
 
     const dados = await response.json();
