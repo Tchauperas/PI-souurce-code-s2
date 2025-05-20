@@ -1,0 +1,111 @@
+/* styles.css */
+/* Estilo Global */
+
+body {
+  min-height: 100vh;
+  background-color: black;
+  font-family: Arial, sans-serif;
+  color: white;
+  margin: 0;
+  max-height: fit-content;
+}
+/* CAMPOS */
+label {
+  display: block;
+  margin-top: 20px;
+  align-items: center;
+  font-size: 16px;
+}
+input{
+  padding: 8px;
+  box-sizing: border-box;
+  width:100%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  margin-top: 2px;
+}
+
+button {
+  background-color: #ffff00;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  gap: 20px;
+  display: block;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: darkorange;
+}
+form {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border: solid 2px;
+  padding: 20px;
+  border-color: white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+form button {
+  margin-top: 15px;
+  width: 49%;
+  display: inline;
+  text-align: center;
+}
+
+h2 {
+  display: block;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.container {
+  max-width: 60vw;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+}
+
+.buttoncontainer{
+  text-align: center;
+  padding-bottom: 45px;
+}
+
+.buttonesquerda{
+  float: left;
+}
+.buttondireita{
+  float: right;
+}
+.barra-superior,
+.barra-inferior {
+  height: 40px;         /* altura da barra */
+  background-color:  #ffff00;
+  width: 100%;          /* ocupa toda a largura */
+}
+
+select{
+  font-size: 14px;
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  width: 100%; /* ou o tamanho que desejar */
+  appearance: none;         /* remove o estilo padrão (no Chrome e Firefox) */
+  -webkit-appearance: none; /* para Safari */
+  -moz-appearance: none;    /* para Firefox */
+  margin-top: 2px;
+}
