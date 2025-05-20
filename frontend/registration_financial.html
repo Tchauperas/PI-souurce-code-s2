@@ -12,7 +12,7 @@
     <div class="barra-superior"></div>
     <h2>Cadastro de Lançamento</h2>
     <div class="container">
-        <form action="/cadastrar_lancamento" method="POST">
+        <form id="lancamentoForm">
             <label for="id_empresa">Empresa</label>
             <input type="text" id="id_empresa" name="id_empresa" required>
 
@@ -42,11 +42,13 @@
             <input type="date" id="data_pagamento" name="data_pagamento">
             <div class="buttoncontainer">
                 <button class="buttonesquerda" type="submit">Cadastrar</button>
-                <button class="buttondireita" onclick="window.location.href='financial_screen.html'">Cancelar</button>
+                <button class="buttondireita" type="button" onclick="window.location.href='financial_screen.html'">Cancelar</button>
             </div>
         </form>
     </div>
     <div class="barra-inferior"></div>
+
+    <script src="./js/cadastro_financeiro.js"></script>
 </body>
 
 </html>

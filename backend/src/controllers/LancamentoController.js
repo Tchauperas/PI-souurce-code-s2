@@ -5,7 +5,7 @@ class LancamentoController {
     const {
       id_empresa,
       id_pessoas,
-      id_TipoLancamentos,
+      id_tipolancamentos,
       numdoc,
       data_movimento,
       data_vecto,
@@ -17,7 +17,7 @@ class LancamentoController {
       const result = await lancamento.insert(
         id_empresa,
         id_pessoas,
-        id_TipoLancamentos,
+        id_tipolancamentos,
         numdoc,
         data_movimento,
         data_vecto,
