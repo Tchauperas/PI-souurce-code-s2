@@ -42,7 +42,7 @@ async function carregarLancamentos() {
       div.innerHTML = `
             <br>
             <br>
-            <h3>Lançamento ${item.numdoc || ""}</h3>
+            <h3>Lançamento N° ${item.numdoc || ""}</h3>
             <p><strong>Empresa:</strong> ${item.id_empresa}</p>
             <p><strong>Pessoa:</strong> ${item.id_pessoas}</p>
             <p><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</p>
