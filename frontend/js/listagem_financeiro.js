@@ -39,22 +39,44 @@ async function carregarLancamentos() {
       } else {
         tipoLancamento = "Débito";
       }
+      function formatarData(data) {
+        if (!data) return "—";
+
+        const date = new Date(data);
+        if (isNaN(date.getTime())) return data; 
+
+        const dia = String(date.getDate()).padStart(2, "0");
+        const mes = String(date.getMonth() + 1).padStart(2, "0");
+        const ano = date.getFullYear();
+
+        return `${dia}/${mes}/${ano}`;
+      }
+
       div.innerHTML = `
-            <br>
-            <br>
-            <h3>Lançamento N° ${item.numdoc || ""}</h3>
-            <p><strong>Empresa:</strong> ${item.id_empresa}</p>
-            <p><strong>Pessoa:</strong> ${item.id_pessoas}</p>
-            <p><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</p>
-            <p><strong>Data Movimento:</strong> ${item.data_movimento}</p>
-            <p><strong>Data Vencimento:</strong> ${item.data_vecto}</p>
-            <p><strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(
-              2
-            )}</p>
-            <p><strong>Data Pagamento:</strong> ${
-              item.data_pagamento || "—"
-            }</p>
-          `;
+    <br>
+    <br>
+    <br>
+    <h3>Lançamento N° ${item.numdoc || ""}</h3>
+    <ul>
+        <li><strong>Empresa:</strong> ${item.id_empresa}</li>
+        <li><strong>Pessoa:</strong> ${item.id_pessoas}</li>
+        <li><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</li>
+        <li><strong>Data Movimento:</strong> ${formatarData(
+          item.data_movimento
+        )}</li>
+        <li><strong>Data Vencimento:</strong> ${formatarData(
+          item.data_vecto
+        )}</li>
+        <li><strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(2)}</li>
+        <li><strong>Data Pagamento:</strong> ${formatarData(
+          item.data_pagamento
+        )}</li>
+    </ul>
+    <div style="margin-top: 20px;">
+        <button class="btn-editar">Editar</button>
+        <button class="btn-deletar">Deletar</button>
+    </div>
+`;
       listaContainer.appendChild(div);
     });
   } catch (error) {

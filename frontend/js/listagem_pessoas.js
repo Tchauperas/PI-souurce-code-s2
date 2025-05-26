@@ -41,22 +41,27 @@ async function carregarPessoas() {
 
       div.className = "pessoa-item";
       div.innerHTML = `
-            <br>
-            <br>
-            <h3>${pessoa.razao_social || "Sem razão social"}</h3>
-            <p><strong>Tipo de Cadastro:</strong> ${tipoCadastro}</p>
-            <p><strong>Tipo de Pessoa:</strong> ${tipoPessoa}</p>
-            <p><strong>CNPJ/CPF:</strong> ${pessoa.cnpj_cpf}</p>
-            <p><strong>Endereço:</strong> ${pessoa.logradouro}, nº ${pessoa.n}${
+    <br>
+    <br>
+    <br>
+    <h3>${pessoa.razao_social || "Sem razão social"}</h3>
+    <ul style="list-style-type: none; padding-left: 0; margin-top: 0.5em;">
+        <li><strong>Tipo de Cadastro:</strong> ${tipoCadastro}</li>
+        <li><strong>Tipo de Pessoa:</strong> ${tipoPessoa}</li>
+        <li><strong>CNPJ/CPF:</strong> ${pessoa.cnpj_cpf}</li>
+        <li><strong>Endereço:</strong> ${pessoa.logradouro}, nº ${pessoa.n}${
         pessoa.complemento ? " - " + pessoa.complemento : ""
-      }</p>
-            <p><strong>Bairro:</strong> ${pessoa.bairro}</p>
-            <p><strong>CEP:</strong> ${pessoa.cep}</p>
-            <p><strong>Município:</strong> ${pessoa.municipio} - ${
-        pessoa.uf
-      }</p>
-            <p><strong>Telefone:</strong> ${pessoa.telefone}</p>
-          `;
+      }</li>
+        <li><strong>Bairro:</strong> ${pessoa.bairro}</li>
+        <li><strong>CEP:</strong> ${pessoa.cep}</li>
+        <li><strong>Município:</strong> ${pessoa.municipio} - ${pessoa.uf}</li>
+        <li><strong>Telefone:</strong> ${pessoa.telefone}</li>
+    </ul>
+    <div style="margin-top: 20px;">
+        <button class="btn-editar">Editar</button>
+        <button class="btn-deletar">Deletar</button>
+    </div>
+`;
       listaContainer.appendChild(div);
     });
   } catch (error) {

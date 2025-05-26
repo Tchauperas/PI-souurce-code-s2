@@ -25,20 +25,26 @@ async function carregarEmpresas() {
       const div = document.createElement("div");
       div.className = "empresa-item";
       div.innerHTML = `
-            <br>
-            <br>
-            <h3>${empresa.razao_social}</h3>
-            <p><strong>CNPJ:</strong> ${empresa.cnpj}</p>
-            <p><strong>Endereço:</strong> ${empresa.logradouro}, nº ${
-        empresa.n
-      }${empresa.complemento ? " - " + empresa.complemento : ""}</p>
-            <p><strong>Bairro:</strong> ${empresa.bairro}</p>
-            <p><strong>CEP:</strong> ${empresa.cep}</p>
-            <p><strong>Município:</strong> ${empresa.municipio} - ${
+    <br>
+    <br>
+    <h3>${empresa.razao_social}</h3>
+    <ul style="list-style-type: none; padding-left: 0;">
+        <li><strong>CNPJ:</strong> ${empresa.cnpj}</li>
+        <li><strong>Endereço:</strong> ${empresa.logradouro}, nº ${empresa.n}${
+        empresa.complemento ? " - " + empresa.complemento : ""
+      }</li>
+        <li><strong>Bairro:</strong> ${empresa.bairro}</li>
+        <li><strong>CEP:</strong> ${empresa.cep}</li>
+        <li><strong>Município:</strong> ${empresa.municipio} - ${
         empresa.uf
-      }</p>
-            <p><strong>Telefone:</strong> ${empresa.telefone}</p>
-          `;
+      }</li>
+        <li><strong>Telefone:</strong> ${empresa.telefone}</li>
+    </ul>
+    <div style="margin-top: 20px;">
+        <button class="btn-editar">Editar</button>
+        <button class="btn-deletar">Deletar</button>
+    </div>
+`;
       listaContainer.appendChild(div);
     });
   } catch (error) {

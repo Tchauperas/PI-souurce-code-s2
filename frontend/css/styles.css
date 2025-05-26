@@ -183,5 +183,24 @@ body {
   width: 30px;
 }
 
+.lancamento-item ul{
+  list-style-type: none;
+  padding: 0;
+}
 
+.btn-editar, .btn-deletar {
+ border: 1px solid #ccc;
+ margin: 2px;
+ color: white;
+ background-color: black; 
+}
 
+.btn-deletar:hover {
+  background-color: red;
+  color: black;
+}
+
+.btn-editar:hover {
+  background-color: yellow;
+  color: black;
+}
