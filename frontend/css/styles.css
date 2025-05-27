@@ -137,7 +137,7 @@ body {
 /* Ícone e Título - alinhados à esquerda e maiores */
 .modified-logo {
   justify-content: flex-start; /* Alinha tudo à esquerda */
-  margin-top: -100px; /* Sobe ou desce o bloco */
+  margin-top: 100px; /* Sobe ou desce o bloco */
   margin-left: 40px; /* Move da esquerda pra direita */
 }
 

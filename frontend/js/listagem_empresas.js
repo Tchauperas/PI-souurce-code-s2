@@ -25,9 +25,8 @@ async function carregarEmpresas() {
       const div = document.createElement("div");
       div.className = "empresa-item";
       div.innerHTML = `
-    <br>
-    <br>
     <h3>${empresa.razao_social}</h3>
+    <hr>
     <ul style="list-style-type: none; padding-left: 0;">
         <li><strong>CNPJ:</strong> ${empresa.cnpj}</li>
         <li><strong>Endereço:</strong> ${empresa.logradouro}, nº ${empresa.n}${
@@ -40,7 +39,7 @@ async function carregarEmpresas() {
       }</li>
         <li><strong>Telefone:</strong> ${empresa.telefone}</li>
     </ul>
-    <div style="margin-top: 20px;">
+    <div class = "botoes-card" style="margin-top: 10px;">
         <button class="btn-editar">Editar</button>
         <button class="btn-deletar">Deletar</button>
     </div>
