@@ -40,8 +40,8 @@ async function carregarEmpresas() {
         <li><strong>Telefone:</strong> ${empresa.telefone}</li>
     </ul>
     <div class = "botoes-card" style="margin-top: 10px;">
-        <button class="btn-editar">Editar</button>
-        <button class="btn-deletar">Deletar</button>
+        <button onClick="editarEmpresa(${empresa.idempresa})" class="btn-editar">Editar</button>
+        <button onClick="deletarEmpresa(${empresa.idempresa})" class="btn-deletar">Deletar</button>
     </div>
 `;
       listaContainer.appendChild(div);

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cadastro de Empresa</title>
+    <link rel="stylesheet" href="css/styles_registration.css" />
+    <link rel="icon" href="images/logo_hitsys.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div class="barra-superior"></div>
+    <h2>Alterar Empresa</h2>
+    <div class="container">
+      <form id="empresaEdit">
+        <label for="razao_social">Razão Social</label>
+        <input type="text" id="razao_social" name="razao_social" />
+
+        <label for="cnpj">CNPJ</label>
+        <input type="text" id="cnpj" name="cnpj" />
+
+        <label for="logradouro">Logradouro</label>
+        <input type="text" id="logradouro" name="logradouro" />
+
+        <label for="bairro">Bairro</label>
+        <input type="text" id="bairro" name="bairro" />
+
+        <label for="n">Número</label>
+        <input type="text" id="n" name="n" />
+
+        <label for="complemento">Complemento</label>
+        <input type="text" id="complemento" name="complemento" />
+
+        <label for="cep">CEP</label>
+        <input type="text" id="cep" name="cep" />
+
+        <label for="municipio">Município</label>
+        <input type="text" id="municipio" name="municipio" />
+
+        <label for="uf">UF</label>
+        <select id="uf" name="uf">
+          <option value="">Selecione</option>
+          <option value="AC">AC</option>
+          <option value="AL">AL</option>
+          <option value="AP">AP</option>
+          <option value="AM">AM</option>
+          <option value="BA">BA</option>
+          <option value="CE">CE</option>
+          <option value="DF">DF</option>
+          <option value="ES">ES</option>
+          <option value="GO">GO</option>
+          <option value="MA">MA</option>
+          <option value="MT">MT</option>
+          <option value="MS">MS</option>
+          <option value="MG">MG</option>
+          <option value="PA">PA</option>
+          <option value="PB">PB</option>
+          <option value="PR">PR</option>
+          <option value="PE">PE</option>
+          <option value="PI">PI</option>
+          <option value="RJ">RJ</option>
+          <option value="RN">RN</option>
+          <option value="RS">RS</option>
+          <option value="RO">RO</option>
+          <option value="RR">RR</option>
+          <option value="SC">SC</option>
+          <option value="SP">SP</option>
+          <option value="SE">SE</option>
+          <option value="TO">TO</option>
+        </select>
+
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" name="telefone" />
+        <div class="buttoncontainer">
+          <button class="buttonesquerda" type="submit">Alterar</button>
+          <button
+            class="buttondireita"
+            type="button"
+            onclick="window.location.href='company_listing_screen.html'"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="barra-inferior"></div>
+    <script src="./js/deletar_editar_empresa.js"></script>
+  </body>
+</html>
