@@ -41,9 +41,6 @@ async function carregarPessoas() {
 
       div.className = "pessoa-item";
       div.innerHTML = `
-    <br>
-    <br>
-    <br>
     <h3>${pessoa.razao_social || "Sem razão social"}</h3>
     <ul style="list-style-type: none; padding-left: 0; margin-top: 0.5em;">
         <li><strong>Tipo de Cadastro:</strong> ${tipoCadastro}</li>

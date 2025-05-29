@@ -52,14 +52,12 @@ async function carregarLancamentos() {
         return `${dia}/${mes}/${ano}`;
       }
 
+
       div.innerHTML = `
-    <br>
-    <br>
-    <br>
     <h3>Lançamento N° ${item.numdoc || ""}</h3>
     <ul>
-        <li><strong>Empresa:</strong> ${item.id_empresa}</li>
-        <li><strong>Pessoa:</strong> ${item.id_pessoas}</li>
+        <li><strong>Empresa:</strong> ${item.empresa_razao_social}</li>
+        <li><strong>Pessoa:</strong> ${item.pessoa_razao_social}</li>
         <li><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</li>
         <li><strong>Data Movimento:</strong> ${formatarData(
           item.data_movimento
@@ -73,8 +71,8 @@ async function carregarLancamentos() {
         )}</li>
     </ul>
     <div style="margin-top: 20px;">
-        <button class="btn-editar">Editar</button>
-        <button class="btn-deletar">Deletar</button>
+        <button onClick="editarLancamento(${item.idlancamentos})" class="btn-editar">Editar</button>
+        <button onClick="deletarLancamento(${item.idlancamentos})" class="btn-deletar">Deletar</button>
     </div>
 `;
       listaContainer.appendChild(div);

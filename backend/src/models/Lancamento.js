@@ -33,17 +33,31 @@ class Lancamento {
 
   async selectAll() {
     try {
-      const result = await knex("lancamentos").select("*");
+      const result = await knex("lancamentos")
+        .select(
+          "lancamentos.*",
+          "e.razao_social as empresa_razao_social",
+          "p.razao_social as pessoa_razao_social"
+        )
+        .leftJoin("empresa as e", "lancamentos.id_empresa", "e.idempresa")
+        .leftJoin("pessoas as p", "lancamentos.id_pessoas", "p.idpessoas");
+
       return result;
     } catch (error) {
-      console.error("Error selecting lancamentos:", error);
-      throw error;
+      console.error("Erro detalhado:", {
+        message: error.message,
+        code: error.code,
+        stack: error.stack,
+      });
+      throw new Error("Falha ao buscar lançamentos.");
     }
   }
 
   async selectById(idlancamentos) {
     try {
-      const result = await knex("lancamentos").where({ idlancamentos: idlancamentos }).first();
+      const result = await knex("lancamentos")
+        .where({ idlancamentos: idlancamentos })
+        .first();
       return result;
     } catch (error) {
       console.error("Error selecting lancamento by id:", error);
@@ -85,7 +99,9 @@ class Lancamento {
       id_usuario,
     };
     try {
-      const result = await knex("lancamentos").where({ idlancamentos }).update(data);
+      const result = await knex("lancamentos")
+        .where({ idlancamentos })
+        .update(data);
       return result;
     } catch (error) {
       console.error("Error updating lancamento:", error);
