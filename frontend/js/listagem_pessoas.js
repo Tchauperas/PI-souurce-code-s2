@@ -58,8 +58,8 @@ async function carregarPessoas() {
         <li><strong>Telefone:</strong> ${pessoa.telefone}</li>
     </ul>
     <div style="margin-top: 20px;">
-        <button class="btn-editar">Editar</button>
-        <button class="btn-deletar">Deletar</button>
+        <button onClick="editarPessoa(${pessoa.idpessoas})" class="btn-editar">Editar</button>
+        <button onClick="deletarPessoa(${pessoa.idpessoas})" class="btn-deletar">Deletar</button>
     </div>
 `;
       listaContainer.appendChild(div);

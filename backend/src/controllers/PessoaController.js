@@ -3,8 +3,8 @@ const pessoa = require("../models/Pessoa.js");
 class PessoaController {
   async insert(req, res) {
     let {
-      idTipoCadastro,
-      idTipoPessoa,
+      idtipocadastro,
+      idtipopessoa,
       cnpj_cpf,
       logradouro,
       bairro,
@@ -19,8 +19,8 @@ class PessoaController {
     } = req.body;
 
     let result = await pessoa.insert(
-      idTipoCadastro,
-      idTipoPessoa,
+      idtipocadastro,
+      idtipopessoa,
       cnpj_cpf,
       logradouro,
       bairro,
@@ -33,7 +33,6 @@ class PessoaController {
       id_usuario,
       razao_social
     );
-
     result.validated
       ? res.status(200).json({ success: true, message: result.values })
       : res.status(404).json({ success: false, values: result.error });
@@ -59,6 +58,7 @@ class PessoaController {
 
   async delete(req, res) {
     let { id } = req.params;
+    console.log(id)
 
     let result = await pessoa.delete(id);
 
