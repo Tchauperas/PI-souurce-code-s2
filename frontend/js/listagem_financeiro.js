@@ -7,6 +7,7 @@ async function carregarLancamentos() {
         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
       },
     });
+
     if (!response.ok) throw new Error("Erro ao carregar lançamentos");
 
     const dados = await response.json();
@@ -33,48 +34,74 @@ async function carregarLancamentos() {
     lancamentos.forEach((item) => {
       const div = document.createElement("div");
       div.className = "lancamento-item";
-      let tipoLancamento;
-      if (item.id_tipolancamentos === 1) {
-        tipoLancamento = "Crédito";
-      } else {
-        tipoLancamento = "Débito";
-      }
+
+      // Tipo do lançamento
+      let tipoLancamento = item.id_tipolancamentos === 1 ? "Crédito" : "Débito";
+
+      // Função para formatar data
       function formatarData(data) {
         if (!data) return "—";
-
         const date = new Date(data);
-        if (isNaN(date.getTime())) return data; 
-
+        if (isNaN(date.getTime())) return data;
         const dia = String(date.getDate()).padStart(2, "0");
         const mes = String(date.getMonth() + 1).padStart(2, "0");
         const ano = date.getFullYear();
-
         return `${dia}/${mes}/${ano}`;
       }
 
+      // Lógica de status de pagamento
+      let status;
+      const hoje = new Date();
+      const dataPagamento = item.data_pagamento
+        ? new Date(item.data_pagamento)
+        : null;
+      const dataVencimento = item.data_vecto ? new Date(item.data_vecto) : null;
 
+      if (dataPagamento) {
+        status = 2; // Pago
+      } else if (dataVencimento && dataVencimento < hoje) {
+        status = 3; // Vencido
+      } else {
+        status = 1; // Em aberto
+      }
+
+      // Montagem do HTML
       div.innerHTML = `
-    <h3>Lançamento N° ${item.numdoc || ""}</h3>
-    <ul>
-        <li><strong>Empresa:</strong> ${item.empresa_razao_social}</li>
-        <li><strong>Pessoa:</strong> ${item.pessoa_razao_social}</li>
-        <li><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</li>
-        <li><strong>Data Movimento:</strong> ${formatarData(
-          item.data_movimento
-        )}</li>
-        <li><strong>Data Vencimento:</strong> ${formatarData(
-          item.data_vecto
-        )}</li>
-        <li><strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(2)}</li>
-        <li><strong>Data Pagamento:</strong> ${formatarData(
-          item.data_pagamento
-        )}</li>
-    </ul>
-    <div style="margin-top: 20px;">
-        <button onClick="editarLancamento(${item.idlancamentos})" class="btn-editar">Editar</button>
-        <button onClick="deletarLancamento(${item.idlancamentos})" class="btn-deletar">Deletar</button>
-    </div>
-`;
+        <h3>Lançamento N° ${item.numdoc || ""}</h3>
+        <ul>
+          <li><strong>Empresa:</strong> ${item.empresa_razao_social}</li>
+          <li><strong>Pessoa:</strong> ${item.pessoa_razao_social}</li>
+          <li><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</li>
+          <li><strong>Data Movimento:</strong> ${formatarData(
+            item.data_movimento
+          )}</li>
+          <li><strong>Data Vencimento:</strong> ${formatarData(
+            item.data_vecto
+          )}</li>
+          <li><strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(
+            2
+          )}</li>
+          <li><strong>Data Pagamento:</strong> ${formatarData(
+            item.data_pagamento
+          )}</li>
+          <br>
+                    <li><strong>Status:</strong> ${
+                      status === 1
+                        ? "Em aberto"
+                        : status === 2
+                        ? "Pago"
+                        : "Vencido"
+                    }</li>
+        </ul>
+        <div style="margin-top: 20px;">
+          <button onClick="editarLancamento(${
+            item.idlancamentos
+          })" class="btn-editar">Editar</button>
+          <button onClick="deletarLancamento(${
+            item.idlancamentos
+          })" class="btn-deletar">Deletar</button>
+        </div>
+      `;
       listaContainer.appendChild(div);
     });
   } catch (error) {
