@@ -14,10 +14,14 @@
     <div class="container">
         <form id="lancamentoForm">
             <label for="id_empresa">Empresa</label>
-            <input type="text" id="id_empresa" name="id_empresa" required>
+            <select id="id_empresa" name="id_empresa" required>
+                <option value="">Selecione uma empresa</option>
+            </select>
 
             <label for="id_pessoas">Pessoa</label>
-            <input type="text" id="id_pessoas" name="id_pessoas" required>
+            <select id="id_pessoas" name="id_pessoas" required>
+                <option value="">Selecione uma pessoa</option>
+            </select>
 
             <label for="id_tipolancamentos">Tipo de Lançamento</label>
             <select name="id_tipolancamentos" id="id_tipolancamentos">
@@ -40,6 +44,7 @@
 
             <label for="data_pagamento">Data de Pagamento</label>
             <input type="date" id="data_pagamento" name="data_pagamento">
+
             <div class="buttoncontainer">
                 <button class="buttonesquerda" type="submit">Cadastrar</button>
                 <button class="buttondireita" type="button" onclick="window.location.href='financial_screen.html'">Cancelar</button>
@@ -48,6 +53,63 @@
     </div>
     <div class="barra-inferior"></div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const empresaSelect = document.getElementById("id_empresa");
+            const pessoaSelect = document.getElementById("id_pessoas");
+
+            const headers = {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            };
+
+            try {
+                // Carrega empresas
+                const empresasResponse = await fetch("http://localhost:3000/empresas", { headers });
+
+                if (!empresasResponse.ok) {
+                    throw new Error(`Erro ao buscar empresas: ${empresasResponse.status}`);
+                }
+
+                const empresasData = await empresasResponse.json();
+                const empresas = Array.isArray(empresasData) ? empresasData : empresasData.message || [];
+
+                console.log("Empresas recebidas:", empresas);
+
+                empresas.forEach(empresa => {
+                    const option = document.createElement("option");
+                    option.value = empresa.idempresa;
+                    option.textContent = empresa.razao_social;
+                    empresaSelect.appendChild(option);
+                });
+
+                // Carrega pessoas
+                const pessoasResponse = await fetch("http://localhost:3000/pessoas", { headers });
+
+                if (!pessoasResponse.ok) {
+                    throw new Error(`Erro ao buscar pessoas: ${pessoasResponse.status}`);
+                }
+
+                const pessoasData = await pessoasResponse.json();
+                const pessoas = Array.isArray(pessoasData) ? pessoasData : pessoasData.message || [];
+
+                console.log("Pessoas recebidas:", pessoas);
+
+                pessoas.forEach(pessoa => {
+                    const option = document.createElement("option");
+                    option.value = pessoa.idpessoas;
+                    option.textContent = pessoa.razao_social;
+                    pessoaSelect.appendChild(option);
+                });
+
+                console.log(empresasData)
+                console.log(pessoasData)
+            } catch (error) {
+                console.error("Erro ao carregar empresas ou pessoas:", error);
+                alert("Erro ao carregar empresas ou pessoas. Verifique a conexão, o token de autenticação e o servidor.");
+            }
+        });
+    </script>
     <script src="./js/cadastro_financeiro.js"></script>
 </body>
 
