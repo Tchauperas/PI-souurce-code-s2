@@ -46,12 +46,12 @@ async function editarLancamento(id) {
         return response.json();
       })
       .then((data) => {
-        alert("Lançamento cadastrado com sucesso!");
+        alert("Lançamento alterado com sucesso!");
         window.location.href = "financial_screen.html";
       })
       .catch((error) => {
         console.error("Erro:", error);
-        alert("Erro ao cadastrar lançamento");
+        alert("Erro ao alterar lançamento");
       });
   } catch (error) {
     console.error("Erro:", error);
