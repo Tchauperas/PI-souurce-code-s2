@@ -1,6 +1,6 @@
 async function carregarPessoas() {
   try {
-    const response = await fetch("http://localhost:3000/pessoas", {
+    const response = await fetch("http://44.212.31.85:3000/pessoas", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

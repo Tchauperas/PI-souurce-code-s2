@@ -31,7 +31,7 @@ async function editarLancamento(id) {
 
     console.log(formData);
 
-    fetch(`http://localhost:3000/lancamento/${id}`, {
+    fetch(`http://44.212.31.85:3000/lancamento/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -1,5 +1,5 @@
 function deletarPessoa(id) {
-  fetch(`http://localhost:3000/pessoa/${id}`, {
+  fetch(`http://44.212.31.85:3000/pessoa/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ function deletarPessoa(id) {
 
 async function editarPessoa(id) {
   try {
-    const response = await fetch(`http://localhost:3000/pessoa/${id}`, {
+    const response = await fetch(`http://44.212.31.85:3000/pessoa/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
