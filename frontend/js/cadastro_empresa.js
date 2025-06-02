@@ -17,7 +17,7 @@ document.getElementById("empresaForm").addEventListener("submit", function (e) {
 
   console.log("Dados do formulário:", formData);
 
-  fetch("http://44.212.31.85:3000/empresa", {
+  fetch("http://18.212.54.168:3000/empresa", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -17,7 +17,7 @@ document
 
     console.log(formData);
 
-    fetch("http://44.212.31.85:3000/lancamento", {
+    fetch("http://18.212.54.168:3000/lancamento", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

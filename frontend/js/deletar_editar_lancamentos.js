@@ -1,5 +1,5 @@
 function deletarLancamento(id) {
-  fetch(`http://44.212.31.85:3000/lancamento/${id}`, {
+  fetch(`http://18.212.54.168:3000/lancamento/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ function deletarLancamento(id) {
 
 async function editarLancamento(id) {
   try {
-    const response = await fetch(`http://44.212.31.85:3000/lancamento/${id}`, {
+    const response = await fetch(`http://18.212.54.168:3000/lancamento/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
