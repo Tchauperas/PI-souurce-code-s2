@@ -53,28 +53,28 @@ async function carregarLancamentos() {
       }
 
       div.innerHTML = `
-    <br>
-    <br>
-    <br>
-    <h3>Lançamento N° ${item.numdoc || ""}</h3>
-    <ul>
-        <li><strong>Empresa:</strong> ${item.id_empresa}</li>
-        <li><strong>Pessoa:</strong> ${item.id_pessoas}</li>
-        <li><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</li>
-        <li><strong>Data Movimento:</strong> ${formatarData(
-          item.data_movimento
-        )}</li>
-        <li><strong>Data Vencimento:</strong> ${formatarData(
-          item.data_vecto
-        )}</li>
-        <li><strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(2)}</li>
-        <li><strong>Data Pagamento:</strong> ${formatarData(
-          item.data_pagamento
-        )}</li>
-    </ul>
-    <div style="margin-top: 20px;">
-        <button class="btn-editar">Editar</button>
-        <button class="btn-deletar">Deletar</button>
+    <div class="item-conteudo-lancamento">
+      <h3>Lançamento N° ${item.numdoc || ""}</h3>
+      <hr>
+        <ul>
+            <li><strong>Empresa:</strong> ${item.id_empresa}</li>
+            <li><strong>Pessoa:</strong> ${item.id_pessoas}</li>
+            <li><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</li>
+            <li><strong>Data Movimento:</strong> ${formatarData(
+              item.data_movimento
+            )}</li>
+            <li><strong>Data Vencimento:</strong> ${formatarData(
+              item.data_vecto
+            )}</li>
+            <li><strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(2)}</li>
+            <li><strong>Data Pagamento:</strong> ${formatarData(
+              item.data_pagamento
+            )}</li>
+        </ul>
+    </div>
+    <div class = "botoes-card" style="margin-top: 10px;">
+        <button class="btn-editar">EDITAR</button>
+        <button class="btn-deletar">DELETAR</button>
     </div>
 `;
       listaContainer.appendChild(div);

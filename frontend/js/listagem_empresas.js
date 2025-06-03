@@ -25,23 +25,25 @@ async function carregarEmpresas() {
       const div = document.createElement("div");
       div.className = "empresa-item";
       div.innerHTML = `
-    <h3>${empresa.razao_social}</h3>
-    <hr>
-    <ul style="list-style-type: none; padding-left: 0;">
-        <li><strong>CNPJ:</strong> ${empresa.cnpj}</li>
-        <li><strong>Endereço:</strong> ${empresa.logradouro}, nº ${empresa.n}${
-        empresa.complemento ? " - " + empresa.complemento : ""
-      }</li>
-        <li><strong>Bairro:</strong> ${empresa.bairro}</li>
-        <li><strong>CEP:</strong> ${empresa.cep}</li>
-        <li><strong>Município:</strong> ${empresa.municipio} - ${
-        empresa.uf
-      }</li>
-        <li><strong>Telefone:</strong> ${empresa.telefone}</li>
-    </ul>
+    <div class="item-conteudo-empresas">
+      <h3>${empresa.razao_social}</h3>
+      <hr>
+      <ul style="list-style-type: none; padding-left: 0;">
+          <li><strong>CNPJ:</strong> ${empresa.cnpj}</li>
+          <li><strong>Endereço:</strong> ${empresa.logradouro}, nº ${empresa.n}${
+          empresa.complemento ? " - " + empresa.complemento : ""
+        }</li>
+          <li><strong>Bairro:</strong> ${empresa.bairro}</li>
+          <li><strong>CEP:</strong> ${empresa.cep}</li>
+          <li><strong>Município:</strong> ${empresa.municipio} - ${
+          empresa.uf
+        }</li>
+          <li><strong>Telefone:</strong> ${empresa.telefone}</li>
+      </ul>
+    </div>
     <div class = "botoes-card" style="margin-top: 10px;">
-        <button onClick="editarEmpresa(${empresa.idempresa})" class="btn-editar">Editar</button>
-        <button onClick="deletarEmpresa(${empresa.idempresa})" class="btn-deletar">Deletar</button>
+        <button onClick="editarEmpresa(${empresa.idempresa})" class="btn-editar">EDITAR</button>
+        <button onClick="deletarEmpresa(${empresa.idempresa})" class="btn-deletar">DELETAR</button>
     </div>
 `;
       listaContainer.appendChild(div);
