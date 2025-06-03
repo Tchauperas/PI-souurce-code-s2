@@ -1,6 +1,6 @@
 async function carregarLancamentos() {
   try {
-    const response = await fetch("http://18.212.54.168:3000/lancamentos", {
+    const response = await fetch("http://35.175.140.204:3000/lancamentos", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

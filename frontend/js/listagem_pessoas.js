@@ -1,6 +1,6 @@
 async function carregarPessoas() {
   try {
-    const response = await fetch("http://18.212.54.168:3000/pessoas", {
+    const response = await fetch("http://35.175.140.204:3000/pessoas", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
