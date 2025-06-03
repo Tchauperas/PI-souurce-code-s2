@@ -67,43 +67,6 @@ async function carregarLancamentos() {
 
       // Montagem do HTML
       div.innerHTML = `
-<<<<<<< HEAD
-        <h3>Lançamento N° ${item.numdoc || ""}</h3>
-        <ul>
-          <li><strong>Empresa:</strong> ${item.empresa_razao_social}</li>
-          <li><strong>Pessoa:</strong> ${item.pessoa_razao_social}</li>
-          <li><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</li>
-          <li><strong>Data Movimento:</strong> ${formatarData(
-            item.data_movimento
-          )}</li>
-          <li><strong>Data Vencimento:</strong> ${formatarData(
-            item.data_vecto
-          )}</li>
-          <li><strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(
-            2
-          )}</li>
-          <li><strong>Data Pagamento:</strong> ${formatarData(
-            item.data_pagamento
-          )}</li>
-          <br>
-                    <li><strong>Status:</strong> ${
-                      status === 1
-                        ? "Em aberto"
-                        : status === 2
-                        ? "Pago"
-                        : "Vencido"
-                    }</li>
-        </ul>
-        <div style="margin-top: 20px;">
-          <button onClick="editarLancamento(${
-            item.idlancamentos
-          })" class="btn-editar">Editar</button>
-          <button onClick="deletarLancamento(${
-            item.idlancamentos
-          })" class="btn-deletar">Deletar</button>
-        </div>
-      `;
-=======
     <div class="item-conteudo-lancamento">
       <h3>Lançamento N° ${item.numdoc || ""}</h3>
       <hr>
@@ -128,7 +91,6 @@ async function carregarLancamentos() {
         <button class="btn-deletar">DELETAR</button>
     </div>
 `;
->>>>>>> hitsys-frontend
       listaContainer.appendChild(div);
     });
   } catch (error) {
