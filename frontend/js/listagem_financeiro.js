@@ -69,6 +69,7 @@ async function carregarLancamentos() {
       div.innerHTML = `
         <div class="item-conteudo-lancamento">
           <h3>Lançamento N° ${item.numdoc || ""}</h3>
+          <hr>
         <ul>
           <li><strong>Empresa:</strong> ${item.empresa_razao_social}</li>
           <li><strong>Pessoa:</strong> ${item.pessoa_razao_social}</li>
@@ -94,7 +95,7 @@ async function carregarLancamentos() {
                         : "Vencido"
                     }</li>
         </ul>
-        <div class="botoes-card" style="margin-top: 20px;">
+        <div class="botoes-card" style="margin-top: 10px;">
           <button onClick="editarLancamento(${
             item.idlancamentos
           })" class="btn-editar">Editar</button>
