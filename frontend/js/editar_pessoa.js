@@ -42,7 +42,7 @@ async function editarPessoa(id) {
       razao_social: document.getElementById("razao_social").value,
     };
 
-    const response = await fetch(`http://localhost:3000/pessoa/${id}`, {
+    const response = await fetch(`http://18.212.54.168:3000/pessoa/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -35,7 +35,7 @@ document
 
     try {
       // Enviar os dados como JSON para a API
-      const response = await fetch("http://localhost:3000/pessoa", {
+      const response = await fetch("http://18.212.54.168:3000/pessoa", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

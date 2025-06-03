@@ -1,6 +1,6 @@
 async function carregarLancamentos() {
   try {
-    const response = await fetch("http://localhost:3000/lancamentos", {
+    const response = await fetch("http://18.212.54.168:3000/lancamentos", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -67,41 +67,30 @@ async function carregarLancamentos() {
 
       // Montagem do HTML
       div.innerHTML = `
-        <h3>Lançamento N° ${item.numdoc || ""}</h3>
+    <div class="item-conteudo-lancamento">
+      <h3>Lançamento N° ${item.numdoc || ""}</h3>
+      <hr>
         <ul>
-          <li><strong>Empresa:</strong> ${item.empresa_razao_social}</li>
-          <li><strong>Pessoa:</strong> ${item.pessoa_razao_social}</li>
-          <li><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</li>
-          <li><strong>Data Movimento:</strong> ${formatarData(
-            item.data_movimento
-          )}</li>
-          <li><strong>Data Vencimento:</strong> ${formatarData(
-            item.data_vecto
-          )}</li>
-          <li><strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(
-            2
-          )}</li>
-          <li><strong>Data Pagamento:</strong> ${formatarData(
-            item.data_pagamento
-          )}</li>
-          <br>
-                    <li><strong>Status:</strong> ${
-                      status === 1
-                        ? "Em aberto"
-                        : status === 2
-                        ? "Pago"
-                        : "Vencido"
-                    }</li>
+            <li><strong>Empresa:</strong> ${item.id_empresa}</li>
+            <li><strong>Pessoa:</strong> ${item.id_pessoas}</li>
+            <li><strong>Tipo de Lançamento:</strong> ${tipoLancamento}</li>
+            <li><strong>Data Movimento:</strong> ${formatarData(
+              item.data_movimento
+            )}</li>
+            <li><strong>Data Vencimento:</strong> ${formatarData(
+              item.data_vecto
+            )}</li>
+            <li><strong>Valor:</strong> R$ ${parseFloat(item.valor).toFixed(2)}</li>
+            <li><strong>Data Pagamento:</strong> ${formatarData(
+              item.data_pagamento
+            )}</li>
         </ul>
-        <div style="margin-top: 20px;">
-          <button onClick="editarLancamento(${
-            item.idlancamentos
-          })" class="btn-editar">Editar</button>
-          <button onClick="deletarLancamento(${
-            item.idlancamentos
-          })" class="btn-deletar">Deletar</button>
-        </div>
-      `;
+    </div>
+    <div class = "botoes-card" style="margin-top: 10px;">
+        <button class="btn-editar">EDITAR</button>
+        <button class="btn-deletar">DELETAR</button>
+    </div>
+`;
       listaContainer.appendChild(div);
     });
   } catch (error) {

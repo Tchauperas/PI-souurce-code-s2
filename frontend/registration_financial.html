@@ -65,7 +65,7 @@
 
             try {
                 // Carrega empresas
-                const empresasResponse = await fetch("http://localhost:3000/empresas", { headers });
+                const empresasResponse = await fetch("http://44.212.31.85:3000/empresas", { headers });
 
                 if (!empresasResponse.ok) {
                     throw new Error(`Erro ao buscar empresas: ${empresasResponse.status}`);
@@ -84,7 +84,7 @@
                 });
 
                 // Carrega pessoas
-                const pessoasResponse = await fetch("http://localhost:3000/pessoas", { headers });
+                const pessoasResponse = await fetch("http://44.212.31.85:3000/pessoas", { headers });
 
                 if (!pessoasResponse.ok) {
                     throw new Error(`Erro ao buscar pessoas: ${pessoasResponse.status}`);

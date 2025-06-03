@@ -1,6 +1,6 @@
 async function carregarPessoas() {
   try {
-    const response = await fetch("http://localhost:3000/pessoas", {
+    const response = await fetch("http://18.212.54.168:3000/pessoas", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -41,22 +41,25 @@ async function carregarPessoas() {
 
       div.className = "pessoa-item";
       div.innerHTML = `
-    <h3>${pessoa.razao_social || "Sem razão social"}</h3>
-    <ul style="list-style-type: none; padding-left: 0; margin-top: 0.5em;">
-        <li><strong>Tipo de Cadastro:</strong> ${tipoCadastro}</li>
-        <li><strong>Tipo de Pessoa:</strong> ${tipoPessoa}</li>
-        <li><strong>CNPJ/CPF:</strong> ${pessoa.cnpj_cpf}</li>
-        <li><strong>Endereço:</strong> ${pessoa.logradouro}, nº ${pessoa.n}${
-        pessoa.complemento ? " - " + pessoa.complemento : ""
-      }</li>
-        <li><strong>Bairro:</strong> ${pessoa.bairro}</li>
-        <li><strong>CEP:</strong> ${pessoa.cep}</li>
-        <li><strong>Município:</strong> ${pessoa.municipio} - ${pessoa.uf}</li>
-        <li><strong>Telefone:</strong> ${pessoa.telefone}</li>
-    </ul>
-    <div style="margin-top: 20px;">
-        <button onClick="editarPessoa(${pessoa.idpessoas})" class="btn-editar">Editar</button>
-        <button onClick="deletarPessoa(${pessoa.idpessoas})" class="btn-deletar">Deletar</button>
+    <div class="item-conteudo-pessoas">
+      <h3>${pessoa.razao_social || "Sem razão social"}</h3>
+      <hr>
+      <ul style="list-style-type: none; padding-left: 0; margin-top: 0.5em;">
+          <li><strong>Tipo de Cadastro:</strong> ${tipoCadastro}</li>
+          <li><strong>Tipo de Pessoa:</strong> ${tipoPessoa}</li>
+          <li><strong>CNPJ/CPF:</strong> ${pessoa.cnpj_cpf}</li>
+          <li><strong>Endereço:</strong> ${pessoa.logradouro}, nº ${pessoa.n}${
+          pessoa.complemento ? " - " + pessoa.complemento : ""
+        }</li>
+          <li><strong>Bairro:</strong> ${pessoa.bairro}</li>
+          <li><strong>CEP:</strong> ${pessoa.cep}</li>
+          <li><strong>Município:</strong> ${pessoa.municipio} - ${pessoa.uf}</li>
+          <li><strong>Telefone:</strong> ${pessoa.telefone}</li>
+      </ul>
+    </div>
+    <div class = "botoes-card" style="margin-top: 10px;">
+        <button onClick="editarPessoa(${pessoa.idpessoas})" class="btn-editar">EDITAR</button>
+        <button onClick="deletarPessoa(${pessoa.idpessoas})" class="btn-deletar">DELETAR</button>
     </div>
 `;
       listaContainer.appendChild(div);

@@ -7,7 +7,7 @@ document
     const password = document.getElementById("senha").value;
 
     try {
-      const resposta = await fetch("http://localhost:3000/login", {
+      const resposta = await fetch("http://172.31.88.252:3000/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
